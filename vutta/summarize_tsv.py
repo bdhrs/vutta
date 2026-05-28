@@ -41,7 +41,7 @@ def fam_of(metre: str) -> str:
 
 
 def main():
-    path = Path(sys.argv[1]) if len(sys.argv) > 1 else repo_root() / "data/output/verse_scansion.tsv"
+    path = Path(sys.argv[1]) if len(sys.argv) > 1 else repo_root() / "output/tsv/verse_scansion.tsv"
     by_book_total: dict[str, int] = {}
     by_book_fam: dict[str, Counter] = {}
     by_book_cost: dict[str, list[float]] = {}

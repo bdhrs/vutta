@@ -1,7 +1,7 @@
 """Aligned monospace display, Ānandajoti-style.
 
 Per pāda, two lines:
-    line 1 — scan marks (⏑ / −) above the first letter of each syllable
+    line 1 — scan marks (· / −) above the first letter of each syllable
     line 2 — the verse text (original spelling, original word spacing)
 
 The scan marks align column-for-column with the verse text. Where a
@@ -45,7 +45,7 @@ def render_pada(orig: str, sub: str, char_map: List[int], weights: str) -> str:
     orig: the clean original-spelling pāda (lowercase, spaced).
     sub:  the post-substitution metrical-form pāda (same spacing).
     char_map: char_map[i] = position in sub of orig char i, or -1 if dropped.
-    weights: '⏑' / '−' per syllable.
+    weights: '·' / '−' per syllable.
     """
     sub_starts = _syllable_start_columns_in_sub(sub)
     if len(sub_starts) != len(weights):

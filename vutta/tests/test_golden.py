@@ -9,23 +9,23 @@ from vutta.match import match
 
 CASES = [
     (
-        "Maṅgalasutta v.1 (mixed Siloka — pāda 3 mavipulā)",
+        "Maṅgalasutta v.1 (mixed Siloka – pāda 3 mavipulā)",
         "Bahū devā manussā ca, maṅgalāni acintayuṃ, "
         "Ākaṅkhamānā sotthānaṃ, brūhi maṅgalam-uttamaṃ.",
-        ["˘¯¯¯˘¯¯¯", "¯˘¯˘˘¯˘¯", "¯¯˘¯¯¯¯¯", "¯˘¯˘˘¯˘¯"],
+        ["·–––·–––", "–·–··–·–", "––·–––––", "–·–··–·–"],
         "Siloka [pathyā / mavipulā]",
     ),
     (
         "Jinacarita v.1 (Pathyāvatta)",
         "Uttamaṃ uttamaṅgena namassitvā Mahesino, "
         "Nibbānamadhudaṃ pādapaṅkajaṃ sajjanālinaṃ.",
-        ["¯˘¯¯˘¯¯¯", "˘¯¯¯˘¯˘¯", "¯¯˘˘˘¯¯¯", "¯˘¯¯˘¯˘¯"],
+        ["–·––·–––", "·–––·–·–", "––···–––", "–·––·–·–"],
         "Siloka (Pathyāvatta)",
     ),
     (
         "Dhammapada 183 line d",
         "Etaṃ Buddhāna' sāsanaṃ",
-        ["¯¯¯¯˘¯˘¯"],
+        ["––––·–·–"],
         None,
     ),
 ]

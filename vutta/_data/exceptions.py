@@ -17,7 +17,7 @@ NON_POSITION_CONJUNCTS = {
 # Format: written form -> (light/heavy weights, syllable count)
 # Loaded as a tsv at runtime; this stub shows the shape.
 SARABHATTI_HINT = (
-    "ariya",     # scan ⏑⏑ not ⏑⏑⏑
+    "ariya",     # scan ·· not ···
     "iriya",
     "cariya",
     "viriya",

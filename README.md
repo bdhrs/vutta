@@ -1,6 +1,6 @@
 # Vutta — a Pāḷi metrical analyzer
 
-Reads a Pāḷi verse, scans its syllables into light (`˘`) and heavy (`¯`)
+Reads a Pāḷi verse, scans its syllables into light (`·`) and heavy (`–`)
 weights, splits it into pādas, and identifies the metre. Built on the rules of
 the [*Vuttodaya*](https://tipitaka.org/romn/#2681) ([Ānandajoti's edition](https://www.ancient-buddhist-texts.net/Textual-Studies/Vuttodaya/index.htm)) and Ven. Ānandajoti Bhikkhu's [*Outline of the Metres in the
 Pāḷi Canon*](https://www.ancient-buddhist-texts.net/Textual-Studies/Outline/index.htm).
@@ -12,7 +12,7 @@ Pāḷi Canon*](https://www.ancient-buddhist-texts.net/Textual-Studies/Outline/i
 uv run -m vutta.scan "Bahū devā manussā ca, maṅgalāni acintayuṃ, Ākaṅkhamānā sotthānaṃ, brūhi maṅgalam-uttamaṃ."
 
 # scan every verse in a canon book and write an aligned .md file
-cp .env.example .env       # then edit VUTTA_CANON_DB to point at your CST SQLite db
+cp .env.example .env       # edit VUTTA_CANON_DB and VUTTA_CST_DIR to match your paths
 uv run -m vutta.scan_book_pretty s0502m_mul --out output/pretty/dhammapada.md
 
 # scan every Khuddaka book up to (not including) the Apadānas
@@ -20,6 +20,10 @@ uv run -m vutta.scan_book_pretty \
     s0501m_mul s0502m_mul s0503m_mul s0504m_mul s0505m_mul \
     s0506m_mul s0507m_mul s0508m_mul s0509m_mul \
     --out output/pretty/khuddaka_pre_apadana.md
+
+# scan every CST XML file that contains verses — no SQLite needed
+uv run -m vutta.scan_cst_xml                        # all books → output/cst/
+uv run -m vutta.scan_cst_xml s0502m.mul.xml         # one book
 ```
 
 ## Output format
@@ -27,20 +31,20 @@ uv run -m vutta.scan_book_pretty \
 For each verse, two lines per pāda followed by an analysis line:
 
 ```
-˘ ¯  ¯ ¯  ˘ ¯  ¯  ¯
+· –  – –  · –  –  –
 bahū devā manussā ca
-¯  ˘ ¯ ˘  ˘¯  ˘ ¯
+–  · – ·  ·–  · –
 maṅgalāni acintayuṃ
-¯¯  ˘  ¯ ¯  ¯  ¯  ¯
+––  ·  – –  –  –  –
 ākaṅkhamānā sotthānaṃ
- ¯ ˘  ¯  ˘ ˘ ¯   ˘ ¯
+ – ·  –  · · –   · –
 brūhi maṅgalam uttamaṃ
 metre: Siloka [pathyā / mavipulā]
 ```
 
-The `˘` (U+02D8 BREVE) and `¯` (U+00AF MACRON) symbols sit at the same vertical
-level — they're the standard prosodic marks used in Latin/Greek/Sanskrit
-scholarly typography and are widely supported in monospace fonts.
+The `·` (U+00B7 MIDDLE DOT) and `–` (U+2013 EN DASH) symbols sit at mid
+character-cell height, aligning cleanly with the verse text below in any
+monospace font.
 
 Note: dropped characters (the `b` of *brāhmaṇ-*, the medial `i` of *cariya*,
 etc.) get a blank column above them — visually showing they don't participate

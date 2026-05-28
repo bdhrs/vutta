@@ -90,7 +90,7 @@ def main():
         print(__doc__)
         sys.exit(1)
     args = sys.argv[1:]
-    out_path = "data/output/verse_scansion.tsv"
+    out_path = "output/tsv/verse_scansion.tsv"
     if "--out" in args:
         i = args.index("--out")
         out_path = args[i + 1]

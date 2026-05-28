@@ -2,10 +2,10 @@
 
 Three family-level detectors + one fixed-profile fallback:
 
-A) Siloka detector — accepts any even-count of 8-or-9-or-10-syllable pādas,
+A) Siloka detector – accepts any even-count of 8-or-9-or-10-syllable pādas,
    with resolution collapsing extra syllables, identifies per-odd-pāda vipulā.
-B) Tuṭṭhubha / Jagatī detector — by terminal cadence and 10–13 syllable count.
-C) Mātrā-metre detector — Vetālīya, Opacchandasaka, Āpātalikā by total mātrā.
+B) Tuṭṭhubha / Jagatī detector – by terminal cadence and 10–13 syllable count.
+C) Mātrā-metre detector – Vetālīya, Opacchandasaka, Āpātalikā by total mātrā.
 D) Fixed-profile scorer for Indavajirā, Vasantatilakā, etc.
 
 Returns up to 3 (name, cost) tuples; lowest cost first. Cost 0 = exact match.
@@ -33,7 +33,7 @@ _PATHYĀ_CADENCE = LIGHT + HEAVY + HEAVY
 
 # --------------------------------------------------------------------------- A
 def _try_resolve_with_cadence(p: str, target_len: int, even_pāda: bool) -> Optional[str]:
-    """Collapse ˘˘→¯ pairs in p until len == target_len AND cadence is valid."""
+    """Collapse ··→– pairs in p until len == target_len AND cadence is valid."""
     if len(p) == target_len:
         return p
     if len(p) < target_len:
@@ -111,7 +111,7 @@ def _detect_siloka(weights: List[str]) -> Optional[Tuple[str, float]]:
 
 # --------------------------------------------------------------------------- B
 def _detect_tutthubha(weights: List[str]) -> Optional[Tuple[str, float]]:
-    """Tuṭṭhubha (11 syll, cadence ¯˘¯×); Jagatī (12 syll, cadence ¯˘¯˘×);
+    """Tuṭṭhubha (11 syll, cadence –·–×); Jagatī (12 syll, cadence –·–·×);
     or mixed Tuṭṭhubha/Jagatī (Upajāti-style). Allow ±1 syllable per pāda.
     """
     n = len(weights)
@@ -120,8 +120,8 @@ def _detect_tutthubha(weights: List[str]) -> Optional[Tuple[str, float]]:
     lens = [len(p) for p in weights]
     if not all(10 <= L <= 13 for L in lens):
         return None
-    cad_t = HEAVY + LIGHT + HEAVY        # ¯˘¯
-    cad_j = HEAVY + LIGHT + HEAVY + LIGHT  # ¯˘¯˘
+    cad_t = HEAVY + LIGHT + HEAVY        # –·–
+    cad_j = HEAVY + LIGHT + HEAVY + LIGHT  # –·–·
     tags = []
     cost = 0.0
     for p, L in zip(weights, lens):
@@ -153,9 +153,9 @@ def _detect_matta(weights: List[str]) -> Optional[Tuple[str, float]]:
         return None
     mattas = [_matta_count(p) for p in weights]
 
-    cad_op = HEAVY + LIGHT + HEAVY + LIGHT + HEAVY       # ¯˘¯˘¯
-    cad_ve = HEAVY + LIGHT + HEAVY + LIGHT               # ¯˘¯˘
-    cad_ap = HEAVY + LIGHT + LIGHT + HEAVY               # ¯˘˘¯
+    cad_op = HEAVY + LIGHT + HEAVY + LIGHT + HEAVY       # –·–·–
+    cad_ve = HEAVY + LIGHT + HEAVY + LIGHT               # –·–·
+    cad_ap = HEAVY + LIGHT + LIGHT + HEAVY               # –··–
 
     expected_op = [16, 18] * (n // 2)
     if mattas == expected_op and all(p[-6:-1] == cad_op for p in weights):

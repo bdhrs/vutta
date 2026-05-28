@@ -1,4 +1,4 @@
-"""Assign ⏑ (light) or − (heavy) to each syllable.
+"""Assign · (light) or – (heavy) to each syllable.
 
 Implements Vuttodaya v. 7's five rules:
     HEAVY if any of:
@@ -10,7 +10,7 @@ Implements Vuttodaya v. 7's five rules:
     LIGHT otherwise.
 
 Inputs: a list of syllable strings, as produced by syllabify_pada.
-Output: a string of '⏑' / '−' characters, one per syllable.
+Output: a string of '·' / '–' characters, one per syllable.
 """
 
 from typing import List
@@ -18,8 +18,8 @@ from typing import List
 from ._data.digraphs import DIGRAPHS, NIGGAHITA, VOWELS_LONG, VOWELS_VARIABLE
 
 
-LIGHT = "˘"
-HEAVY = "¯"
+LIGHT = "·"
+HEAVY = "–"
 
 
 def _is_closed(syl: str) -> bool:

@@ -4,8 +4,8 @@ Usage:
     uv run -m vutta.scan_book_pretty <book_code> [<book_code2> ...] [--out path.md]
 
 Examples:
-    uv run -m vutta.scan_book_pretty s0502m_mul --out data/output/dhammapada.md
-    uv run -m vutta.scan_book_pretty s0501m_mul s0502m_mul s0503m_mul --out data/output/khp_dhp_ud.md
+    uv run -m vutta.scan_book_pretty s0502m_mul --out output/pretty/dhammapada.md
+    uv run -m vutta.scan_book_pretty s0501m_mul s0502m_mul s0503m_mul --out output/pretty/khp_dhp_ud.md
 """
 
 import re
@@ -90,7 +90,7 @@ def main():
         print(__doc__)
         sys.exit(1)
     args = sys.argv[1:]
-    out_path = "data/output/verse_pretty.md"
+    out_path = "output/pretty/verse_pretty.md"
     if "--out" in args:
         i = args.index("--out")
         out_path = args[i + 1]

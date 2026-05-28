@@ -28,8 +28,9 @@ texts. Assumes basic familiarity with:
    `VUTTA_CANON_DB` in `.env` (or `VICAYA_CANON_DB` as fallback).
 2. **Output must align in monospace fonts.** Symbols are chosen so the scan
    line aligns perfectly with the verse line in any monospace context —
-   terminal, Obsidian, VS Code, GitHub. Specifically: `˘` (U+02D8) for light
-   and `¯` (U+00AF) for heavy — both top-aligned, both broadly supported.
+   terminal, Obsidian, VS Code, GitHub. Specifically: `·` (U+00B7 MIDDLE DOT)
+   for light and `–` (U+2013 EN DASH) for heavy — both mid-cell height,
+   single-width in all common monospace fonts.
 3. **No external network access** at runtime. Everything ships in-repo
    (digraph table, metre profiles, sarabhatti wordlist, non-position
    conjunct stems).
@@ -51,19 +52,23 @@ texts. Assumes basic familiarity with:
 - **Vicaya** (sibling research workflow): companion project for research
   notes; the `pali-prosody-study-guide.md` note in the Vicaya vault is the
   pedagogical reference for what algorithms *should* implement.
+- **CST XML source** (raw Tipiṭaka TEI/XML):
+  `/home/bodhirasa/MyFiles/3_Active/dpd-db/resources/dpd_submodules/cst/romn/`
+  217 UTF-16-encoded XML files covering the full Tipiṭaka. Verse paragraphs
+  use `rend="gatha1|gatha2|gatha3|gathalast"`. Scanned by `vutta.scan_cst_xml`.
 
 ## What the Output Looks Like
 
 ### Single-verse CLI
 
 ```
-˘ ¯  ¯ ¯  ˘ ¯  ¯  ¯
+· –  – –  · –  –  –
 bahū devā manussā ca
-¯  ˘ ¯ ˘  ˘¯  ˘ ¯
+–  · – ·  ·–  · –
 maṅgalāni acintayuṃ
-¯¯  ˘  ¯ ¯  ¯  ¯  ¯
+––  ·  – –  –  –  –
 ākaṅkhamānā sotthānaṃ
- ¯ ˘  ¯  ˘ ˘ ¯   ˘ ¯
+ – ·  –  · · –   · –
 brūhi maṅgalam uttamaṃ
 metre: Siloka [pathyā / mavipulā]
 ```

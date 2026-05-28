@@ -1,13 +1,13 @@
 """Metre profile library.
 
 Each profile is a list of pāda-shapes. A pāda-shape is a string of:
-    '˘'  light
-    '¯'  heavy
+    '·'  light
+    '–'  heavy
     '⏓'  light or heavy (anceps)
     '×'  any (but counted heavy by pāda-end rule)
 
 Plus optional resolution markers. The match scorer treats ⏓ and × as wildcards
-and accepts ˘˘ in place of ¯ (resolution) or vice versa (replacement) at a
+and accepts ·· in place of – (resolution) or vice versa (replacement) at a
 configurable cost.
 
 This stub lists the main canonical/classical metres. The Vuttodaya describes
@@ -20,10 +20,10 @@ SILOKA_PATHYA = {
     "family": "vutta",
     "syllables_per_pada": 8,
     "padas": [
-        "⏓⏓⏓⏓˘¯¯×",   # odd
-        "⏓⏓⏓⏓˘¯˘×",   # even
-        "⏓⏓⏓⏓˘¯¯×",
-        "⏓⏓⏓⏓˘¯˘×",
+        "⏓⏓⏓⏓·––×",   # odd
+        "⏓⏓⏓⏓·–·×",   # even
+        "⏓⏓⏓⏓·––×",
+        "⏓⏓⏓⏓·–·×",
     ],
 }
 
@@ -31,81 +31,81 @@ SILOKA_NAVIPULA = {  # odd-line variation 1
     "name": "Siloka (Navipulā)",
     "family": "vutta",
     "syllables_per_pada": 8,
-    "padas": ["⏓⏓⏓⏓˘˘˘×", "⏓⏓⏓⏓˘¯˘×",
-              "⏓⏓⏓⏓˘¯¯×", "⏓⏓⏓⏓˘¯˘×"],
+    "padas": ["⏓⏓⏓⏓···×", "⏓⏓⏓⏓·–·×",
+              "⏓⏓⏓⏓·––×", "⏓⏓⏓⏓·–·×"],
 }
 
 SILOKA_BHAVIPULA = {
     "name": "Siloka (Bhavipulā)",
     "family": "vutta",
     "syllables_per_pada": 8,
-    "padas": ["⏓⏓⏓⏓¯˘˘×", "⏓⏓⏓⏓˘¯˘×",
-              "⏓⏓⏓⏓˘¯¯×", "⏓⏓⏓⏓˘¯˘×"],
+    "padas": ["⏓⏓⏓⏓–··×", "⏓⏓⏓⏓·–·×",
+              "⏓⏓⏓⏓·––×", "⏓⏓⏓⏓·–·×"],
 }
 
 SILOKA_MAVIPULA = {
     "name": "Siloka (Mavipulā)",
     "family": "vutta",
     "syllables_per_pada": 8,
-    "padas": ["⏓⏓⏓⏓¯¯¯×", "⏓⏓⏓⏓˘¯˘×",
-              "⏓⏓⏓⏓˘¯¯×", "⏓⏓⏓⏓˘¯˘×"],
+    "padas": ["⏓⏓⏓⏓–––×", "⏓⏓⏓⏓·–·×",
+              "⏓⏓⏓⏓·––×", "⏓⏓⏓⏓·–·×"],
 }
 
 SILOKA_RAVIPULA = {
     "name": "Siloka (Ravipulā)",
     "family": "vutta",
     "syllables_per_pada": 8,
-    "padas": ["⏓⏓⏓⏓¯˘¯×", "⏓⏓⏓⏓˘¯˘×",
-              "⏓⏓⏓⏓˘¯¯×", "⏓⏓⏓⏓˘¯˘×"],
+    "padas": ["⏓⏓⏓⏓–·–×", "⏓⏓⏓⏓·–·×",
+              "⏓⏓⏓⏓·––×", "⏓⏓⏓⏓·–·×"],
 }
 
 TUTTHUBHA = {
     "name": "Tuṭṭhubha",
     "family": "vutta",
     "syllables_per_pada": 11,
-    "padas": ["⏓¯⏓¯⏓˘⏓¯˘¯×"] * 4,
+    "padas": ["⏓–⏓–⏓·⏓–·–×"] * 4,
 }
 
 JAGATI = {
     "name": "Jagatī",
     "family": "vutta",
     "syllables_per_pada": 12,
-    "padas": ["⏓¯⏓¯⏓˘⏓¯˘¯˘×"] * 4,
+    "padas": ["⏓–⏓–⏓·⏓–·–·×"] * 4,
 }
 
 INDAVAJIRA = {
     "name": "Indavajirā",
     "family": "vutta-fixed",
     "syllables_per_pada": 11,
-    "padas": ["¯¯˘¯¯˘˘¯˘¯×"] * 4,
+    "padas": ["––·––··–·–×"] * 4,
 }
 
 UPINDAVAJIRA = {
     "name": "Upindavajirā",
     "family": "vutta-fixed",
     "syllables_per_pada": 11,
-    "padas": ["˘¯˘¯¯˘˘¯˘¯×"] * 4,
+    "padas": ["·–·––··–·–×"] * 4,
 }
 
 VAMSATTHA = {
     "name": "Vaṃsaṭṭhā",
     "family": "vutta-fixed",
     "syllables_per_pada": 12,
-    "padas": ["˘¯˘¯¯˘˘¯˘¯˘×"] * 4,
+    "padas": ["·–·––··–·–·×"] * 4,
 }
 
 RUCIRA = {
     "name": "Rucirā",
     "family": "vutta-fixed",
     "syllables_per_pada": 13,
-    "padas": ["˘¯˘¯˘˘˘˘¯˘¯˘×"] * 4,
+    "padas": ["·–·–····–·–·×"] * 4,
 }
 
 VASANTATILAKA = {
     "name": "Vasantatilakā",
     "family": "vutta-fixed",
     "syllables_per_pada": 14,
-    "padas": ["¯¯˘¯˘˘˘¯˘˘¯˘¯×"] * 4,
+    "padas": ["––·–···–··–·–×"] * 4,
 }
 
 # Measure metres: matched by mātrā count + cadence, not by syllable pattern.
@@ -114,21 +114,21 @@ VETALIYA = {
     "name": "Vetālīya",
     "family": "matta",
     "matta_per_pada": [14, 16, 14, 16],
-    "cadence": "¯˘¯˘×",  # last 5 syllables
+    "cadence": "–·–·×",  # last 5 syllables
 }
 
 OPACCHANDASAKA = {
     "name": "Opacchandasaka",
     "family": "matta",
     "matta_per_pada": [16, 18, 16, 18],
-    "cadence": "¯˘¯˘¯×",
+    "cadence": "–·–·–×",
 }
 
 APATALIKA = {
     "name": "Āpātalikā",
     "family": "matta",
     "matta_per_pada": [14, 16, 14, 16],
-    "cadence": "¯˘˘¯×",
+    "cadence": "–··–×",
 }
 
 # Bar metres: matched by 4-mattā gaṇa structure.
