@@ -1,0 +1,10 @@
+[project]
+name = "vutta"
+version = "0.1.0"
+description = "Pāḷi metrical analyzer — scans verse and identifies the metre"
+authors = [{ name = "Bodhirasa" }]
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["vutta*"]
