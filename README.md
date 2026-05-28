@@ -2,8 +2,8 @@
 
 Reads a Pāḷi verse, scans its syllables into light (`˘`) and heavy (`¯`)
 weights, splits it into pādas, and identifies the metre. Built on the rules of
-the *Vuttodaya* and Ven. Ānandajoti Bhikkhu's *Outline of the Metres in the
-Pāḷi Canon*.
+the [*Vuttodaya*](https://tipitaka.org/romn/#2681) ([Ānandajoti's edition](https://www.ancient-buddhist-texts.net/Textual-Studies/Vuttodaya/index.htm)) and Ven. Ānandajoti Bhikkhu's [*Outline of the Metres in the
+Pāḷi Canon*](https://www.ancient-buddhist-texts.net/Textual-Studies/Outline/index.htm).
 
 ## Quick start
 
@@ -13,13 +13,13 @@ uv run -m vutta.scan "Bahū devā manussā ca, maṅgalāni acintayuṃ, Ākaṅ
 
 # scan every verse in a canon book and write an aligned .md file
 cp .env.example .env       # then edit VUTTA_CANON_DB to point at your CST SQLite db
-uv run -m vutta.scan_book_pretty s0502m_mul --out data/output/dhammapada.md
+uv run -m vutta.scan_book_pretty s0502m_mul --out output/pretty/dhammapada.md
 
 # scan every Khuddaka book up to (not including) the Apadānas
 uv run -m vutta.scan_book_pretty \
     s0501m_mul s0502m_mul s0503m_mul s0504m_mul s0505m_mul \
     s0506m_mul s0507m_mul s0508m_mul s0509m_mul \
-    --out data/output/khuddaka_pre_apadana.md
+    --out output/pretty/khuddaka_pre_apadana.md
 ```
 
 ## Output format
@@ -114,17 +114,20 @@ vutta/
 │   ├── scan.py                # CLI: scan a single verse
 │   ├── scan_book.py           # scan a canon book → TSV
 │   ├── scan_book_pretty.py    # scan a canon book → aligned .md
+│   ├── scan_cst_xml.py        # scan all CST XML files → aligned .md
 │   ├── summarize_tsv.py       # stats from a scansion TSV
 │   └── tests/
 │       └── test_golden.py
-└── data/
-    └── output/                # generated TSVs and pretty .md (gitignored)
+└── output/
+    ├── tsv/                   # generated TSVs (gitignored)
+    ├── pretty/                # aligned .md from DB (gitignored)
+    └── cst/                   # aligned .md from CST XML (gitignored)
 ```
 
 ## Sources
 
 - Saṅgharakkhita, *Vuttodaya — The Composition of Metre*, ed./tr. Ānandajoti
-  Bhikkhu, 2016.
+  Bhikkhu, 2016. ([Pāḷi text](https://tipitaka.org/romn/#2681) · [Ānandajoti's edition](https://www.ancient-buddhist-texts.net/Textual-Studies/Vuttodaya/index.htm))
 - Ānandajoti Bhikkhu, *Pāḷi Prosody: Texts and Studies* (contains *An Outline of
   the Metres in the Pāḷi Canon*).
 - Ānandajoti Bhikkhu, *Main Metres in the Pāli Canon*, *Metre Tables*.
